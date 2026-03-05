@@ -1,15 +1,14 @@
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
+import "../global.css";
+import WelcomeCard from "./components/welcomeCard"
+import ButtonCard from "./components/buttonCard";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+    <View className="h-full w-full bg-[#151515]">
+        <WelcomeCard/>
+        <ButtonCard/>
+        
     </View>
   );
 }
