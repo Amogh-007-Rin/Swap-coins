@@ -1,14 +1,19 @@
-import { View, Text, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React from "react";
+import { Text, TouchableOpacity, View } from "react-native";
 
-const buyButton = () => {
+const BuyButton = () => {
     return (
-        <View className='flex justify-center items-center w-full h-10'>
-            <View className='flex justify-center items-center w-96 h-12 bg-[#9590ec] rounded-xl'>
-                <TouchableOpacity onPress={alert} className='w-full h-full flex justify-center items-center'><Text className='text-black'>Buy SOL with Cash</Text></TouchableOpacity>
+        <TouchableOpacity
+            onPress={() => alert("Buy SOL with Cash")}
+            className="w-full h-12 rounded-2xl bg-[#7f89ff] items-center justify-center active:opacity-80 my-4"
+        >
+            <View className="flex-row items-center justify-center gap-2">
+                <Text className="text-[#04050d] text-[15px]" style={{ fontFamily: "SpaceMono" }}>
+                    Buy SOL with Cash
+                </Text>
             </View>
-        </View>
-    )
-}
+        </TouchableOpacity>
+    );
+};
 
-export default buyButton;
+export default BuyButton;

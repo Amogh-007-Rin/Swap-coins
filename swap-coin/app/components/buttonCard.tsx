@@ -1,15 +1,15 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import BuyButton from './buyButton'
-import DepositeButton from './depositeButton'
+import React from "react";
+import { View } from "react-native";
+import BuyButton from "./buyButton";
+import DepositeButton from "./depositeButton";
 
-const buttonCard = () => {
+const ButtonCard = () => {
   return (
-    <View className=''>
-      <BuyButton></BuyButton>
-      <DepositeButton></DepositeButton>
+    <View className=" flex justify-center items-center px-4 mt-1 gap-3 mx-1">
+      <BuyButton />
+      <DepositeButton />
     </View>
-  )
-}
+  );
+};
 
-export default buttonCard
+export default ButtonCard;

@@ -1,14 +1,17 @@
-import { View, Text, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React from "react";
+import { Text, TouchableOpacity } from "react-native";
 
-const depositeButton = () => {
+const DepositeButton = () => {
   return (
-          <View className='flex justify-center items-center w-full h-10 my-4'>
-              <View className='flex justify-center items-center w-96 h-12 bg-[#29292b] rounded-xl'>
-                  <TouchableOpacity onPress={alert} className='w-full h-full flex justify-center items-center'><Text className='text-white'>Deposite Crypto</Text></TouchableOpacity>
-              </View>
-          </View>
-      )
-}
+        <TouchableOpacity
+            onPress={() => alert("Deposit Crypto")}
+            className="w-full h-12 rounded-2xl bg-[#15151f] border border-[#26263a] items-center justify-center active:opacity-80"
+        >
+            <Text className="text-[#dde0ff] text-[15px]" style={{ fontFamily: "SpaceMono" }}>
+                Deposit Crypto
+            </Text>
+        </TouchableOpacity>
+    );
+};
 
-export default depositeButton;
+export default DepositeButton;

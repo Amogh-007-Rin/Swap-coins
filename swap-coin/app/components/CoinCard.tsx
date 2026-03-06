@@ -1,6 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { FlatList, Image, Text, View, ActivityIndicator } from 'react-native';
-import { Coin, getCoinData } from '../../scripts/getCoinData';
+import React, { useEffect, useMemo, useState } from "react";
+import { ActivityIndicator, FlatList, Image, Text, View } from "react-native";
+import { Coin, getCoinData } from "../../scripts/getCoinData";
+
+const HOLDINGS: Record<string, number> = {
+  sol: 42.5,
+  eth: 1.82,
+  btc: 0.08,
+  xrp: 210.35,
+};
+
+const formatCurrency = (value: number) =>
+  new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: value >= 1000 ? 0 : 2,
+  }).format(value);
 
 const CoinCard = () => {
   const [coins, setCoins] = useState<Coin[]>([]);
@@ -8,34 +22,78 @@ const CoinCard = () => {
 
   useEffect(() => {
     const fetchList = async () => {
-      const data = await getCoinData();
+      const data = await getCoinData(1, 12);
       setCoins(data);
       setLoading(false);
     };
     fetchList();
   }, []);
 
-  if (loading) return <ActivityIndicator size="large" style={{ flex: 1 }} />;
+  const visibleCoins = useMemo(() => {
+    if (!coins.length) {
+      return [];
+    }
+
+    const priority = ["solana", "ethereum", "bitcoin", "ripple"];
+    const sorted = [...coins].sort(
+      (a, b) => priority.indexOf(a.id) - priority.indexOf(b.id)
+    );
+    return sorted.slice(0, 8);
+  }, [coins]);
+
+  if (loading) {
+    return (
+      <View className="h-40 items-center justify-center">
+        <ActivityIndicator size="large" color="#7f89ff" />
+      </View>
+    );
+  }
 
   return (
     <FlatList
-      data={coins}
+      data={visibleCoins}
       keyExtractor={(item) => item.id}
+      scrollEnabled={false}
+      ItemSeparatorComponent={() => <View className="h-2" />}
       renderItem={({ item }) => (
-        <View className='flex-row justify-start items-center w-96 h-20 bg-[#29292b] m-2 rounded-2xl'>
-          <View className='w-1/4 h-full flex justify-center items-center'>
-            <Image source={{ uri: item.image }} className='w-12 h-12 rounded-full' />
+        <View className="w-full rounded-2xl bg-[#11111a] border border-[#212132] flex-row items-center px-3 py-3">
+          <View className="w-11 h-11 rounded-full bg-[#1a1a26] items-center justify-center">
+            <Image source={{ uri: item.image }} className="w-9 h-9 rounded-full" />
           </View>
-          <View className='flex justify-center items-center w-1/4 h-full'>
-            <Text className='text-white text-xl'>{item.name}</Text>
-            <Text className='text-white my-2'>0 {item.symbol.toUpperCase()}</Text>
+
+          <View className="flex-1 ml-3">
+            <Text className="text-white text-[15px]" style={{ fontFamily: "SpaceMono" }}>
+              {item.symbol.toUpperCase()}
+            </Text>
+            <Text className="text-[#8f90a2] text-xs">{item.name}</Text>
           </View>
-          <View className='w-20 h-full flex-col justify-center items-center rounded-2xl mx-28'>
-            <Text className='text-white text-xl -my-1'>$0.00</Text>
-            <Text className='text-white text-sm'>$0.00</Text>
+
+          <View className="items-end">
+            <Text className="text-white text-sm">
+              {formatCurrency((HOLDINGS[item.symbol] ?? 0) * item.current_price)}
+            </Text>
+            <Text className="text-[#8f90a2] text-xs">
+              {(HOLDINGS[item.symbol] ?? 0).toFixed(2)} {item.symbol.toUpperCase()}
+            </Text>
+          </View>
+
+          <View className="ml-3 rounded-lg px-2 py-1 bg-[#171727]">
+            <Text
+              className={`text-xs ${
+                item.price_change_percentage_24h >= 0 ? "text-[#6affbc]" : "text-[#ff7d9a]"
+              }`}
+            >
+              {item.price_change_percentage_24h >= 0 ? "+" : ""}
+              {item.price_change_percentage_24h.toFixed(2)}%
+            </Text>
           </View>
         </View>
       )}
+      ListEmptyComponent={
+        <View className="h-20 rounded-2xl border border-[#222236] bg-[#11111a] items-center justify-center">
+          <Text className="text-[#8f90a2]">No token data available</Text>
+        </View>
+      }
     />
   );
 };
