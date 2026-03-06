@@ -4,6 +4,7 @@ import WelcomeCard from "./components/welcomeCard"
 import ButtonCard from "./components/buttonCard";
 import SwapButtons from "./components/swapButtons";
 import TokenCard from "./components/TokenCard";
+import CoinCard from "./components/CoinCard";
 
 export default function Index() {
   return (
@@ -16,7 +17,10 @@ export default function Index() {
           <SwapButtons lable="Recieve" name="qr-code" iconColor="#9590ec"></SwapButtons>
           <SwapButtons lable="Buy" name="card-outline" iconColor="#9590ec"></SwapButtons>
         </View>
-        <TokenCard></TokenCard>        
+        <TokenCard></TokenCard>
+        <View className="flex justify-center items-center">
+        <CoinCard></CoinCard>
+        </View>        
     </View>
   );
 }

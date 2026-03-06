@@ -14,7 +14,7 @@ type SwapButtonsProps = {
 const swapButtons = ({lable, name, iconColor}: SwapButtonsProps) => {
   return (
     <View className='flex justify-center items-center w-20 h-20 bg-[#29292b] rounded-2xl'>
-      <Pressable className='w-full h-full flex justify-center items-center rounded-2xl'>
+      <Pressable className='w-full h-full flex justify-center items-center rounded-2xl' onPress={alert}>
         <Ionicons name={name} size={28} color={iconColor}></Ionicons>
         <Text className='text-white'>{lable}</Text>
       </Pressable>
