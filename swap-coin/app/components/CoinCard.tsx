@@ -56,28 +56,28 @@ const CoinCard = () => {
       scrollEnabled={false}
       ItemSeparatorComponent={() => <View className="h-2" />}
       renderItem={({ item }) => (
-        <View className="w-full rounded-2xl bg-[#11111a] border border-[#212132] flex-row items-center px-3 py-3">
-          <View className="w-11 h-11 rounded-full bg-[#1a1a26] items-center justify-center">
-            <Image source={{ uri: item.image }} className="w-9 h-9 rounded-full" />
+        <View className="w-full h-20  bg-[#11111a] rounded-2xl border border-[#212132] flex-row items-center px-3 py-3">
+          <View className="w-14 h-14 bg-[#171727] rounded-full items-center justify-center">
+            <Image source={{ uri: item.image }} className="w-12 h-12 rounded-full" />
           </View>
 
-          <View className="flex-1 ml-3">
+          <View className="flex-1 ml-2 h-full justify-center">
             <Text className="text-white text-[15px]" style={{ fontFamily: "SpaceMono" }}>
               {item.symbol.toUpperCase()}
             </Text>
             <Text className="text-[#8f90a2] text-xs">{item.name}</Text>
           </View>
 
-          <View className="items-end">
-            <Text className="text-white text-sm">
+          <View className=" w-28 h-full items-end justify-center">
+            <Text className="text-white text-sm text-center">
               {formatCurrency((HOLDINGS[item.symbol] ?? 0) * item.current_price)}
             </Text>
-            <Text className="text-[#8f90a2] text-xs">
-              {(HOLDINGS[item.symbol] ?? 0).toFixed(2)} {item.symbol.toUpperCase()}
+            <Text className="text-[#8f90a2] text-xs text-center">
+              {(HOLDINGS[item.symbol] ?? 0).toFixed(2)}
             </Text>
           </View>
 
-          <View className="ml-3 rounded-lg px-2 py-1 bg-[#171727] flex justify-center items-center">
+          <View className="ml-3 rounded-lg px-2 py-1 flex justify-center items-center bg-[#1a1a26]">
             <Text
               className={`text-xs text-center ${
                 item.price_change_percentage_24h >= 0 ? "text-[#6affbc]" : "text-[#ff7d9a]"

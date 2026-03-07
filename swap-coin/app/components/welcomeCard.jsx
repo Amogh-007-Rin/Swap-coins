@@ -32,7 +32,7 @@ export default function WelcomeCard() {
                     </View>
 
                     <View className="px-3 py-2 rounded-xl bg-[#161626] border border-[#23233a]">
-                        <Text className="text-[#c8cae6] text-xs text-center">3 assets active</Text>
+                        <Text className="text-[#c8cae6] text-xs text-center">3 active assets</Text>
                     </View>
                 </View>
             </View>

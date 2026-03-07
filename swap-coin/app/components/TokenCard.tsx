@@ -14,7 +14,7 @@ const TokenCard = () => {
       </View>
 
       <View className="rounded-2xl bg-[#141420] border border-[#232337] px-2 py-1">
-        <Text className="text-[#c7c8db] text-xs">NFTs</Text>
+        <Text className="text-[#c7c8db] text-xs text-center">NFTs</Text>
       </View>
     </View>
   );
