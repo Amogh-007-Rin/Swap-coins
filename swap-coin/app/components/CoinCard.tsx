@@ -22,7 +22,7 @@ const CoinCard = () => {
 
   useEffect(() => {
     const fetchList = async () => {
-      const data = await getCoinData(1, 12);
+      const data = await getCoinData();
       setCoins(data);
       setLoading(false);
     };
@@ -38,7 +38,7 @@ const CoinCard = () => {
     const sorted = [...coins].sort(
       (a, b) => priority.indexOf(a.id) - priority.indexOf(b.id)
     );
-    return sorted.slice(0, 8);
+    return sorted.slice(0, 20);
   }, [coins]);
 
   if (loading) {
@@ -77,9 +77,9 @@ const CoinCard = () => {
             </Text>
           </View>
 
-          <View className="ml-3 rounded-lg px-2 py-1 bg-[#171727]">
+          <View className="ml-3 rounded-lg px-2 py-1 bg-[#171727] flex justify-center items-center">
             <Text
-              className={`text-xs ${
+              className={`text-xs text-center ${
                 item.price_change_percentage_24h >= 0 ? "text-[#6affbc]" : "text-[#ff7d9a]"
               }`}
             >
