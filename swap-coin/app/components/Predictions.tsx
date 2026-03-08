@@ -11,7 +11,7 @@ const Predictions = () => {
         <View className='w-full h-56 flex justify-center'>
             <View className='flex-row items-center'>
                 <Text className='text-white text-xl mx-4'>Predictions</Text>
-                <View className='flex justify-center items-center -mx-4'><Ionicons name="chevron-forward" size={18} color='white'></Ionicons></View>
+                <View className='flex justify-center items-center -mx-12'><Ionicons name="chevron-forward" size={18} color='white'></Ionicons></View>
             </View>
             <FlatList
                 data={DATA}
