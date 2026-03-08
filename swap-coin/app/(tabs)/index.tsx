@@ -6,6 +6,8 @@ import ButtonCard from "../components/buttonCard";
 import SwapButtons from "../components/swapButtons";
 import TokenCard from "../components/TokenCard";
 import CoinCard from "../components/CoinCard";
+import Predictions from "../components/Predictions";
+
 
 export default function Index() {
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -53,6 +55,10 @@ export default function Index() {
 
           <View className="px-4">
             <CoinCard />
+          </View>
+
+          <View className="w-full h-60 my-6 flex justify-center items-center">
+            <Predictions></Predictions>
           </View>
         </ScrollView>
       </Animated.View>
