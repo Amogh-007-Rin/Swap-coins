@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "Ichigo",
-    "slug": "Ichigo",
+    "name": "swap-coins",
+    "slug": "swap-coins",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "ichigo",
+    "scheme": "swap-coins",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.amoghdath.appIchigo"
+      "bundleIdentifier": "com.amoghdath.appSwapcoins"
     },
     "android": {
       "adaptiveIcon": {
@@ -18,7 +18,7 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.amoghdath.appIchigo"
+      "package": "com.amoghdath.appSwapcoins"
     },
     "web": {
       "bundler": "metro",

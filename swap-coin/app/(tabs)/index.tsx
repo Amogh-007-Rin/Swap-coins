@@ -7,6 +7,7 @@ import SwapButtons from "../components/swapButtons";
 import TokenCard from "../components/TokenCard";
 import CoinCard from "../components/CoinCard";
 import Predictions from "../components/Predictions";
+import Preps from "../components/Perps";
 
 
 export default function Index() {
@@ -60,6 +61,10 @@ export default function Index() {
           <View className="w-full h-60 my-6 flex justify-center items-center">
             <Predictions></Predictions>
           </View>
+          <View className="w-full h-28 my-5 flex justify-center items-cente">
+            <Preps></Preps>
+          </View>
+        
         </ScrollView>
       </Animated.View>
     </View>

@@ -25,7 +25,7 @@ export const getCoinData = async (page = 1, perPage = 50) => {
         'x-cg-demo-api-key': COINGECKO_API_KEY,
       }
     });
-    console.log(response)
+    console.log(response.data.length) // API Returns 50 indexed coins in total
     return response.data;
   } catch (error) {
     console.error("Error fetching crypto data:", error.response?.data || error.message);
