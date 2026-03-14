@@ -1,4 +1,4 @@
-import { View, Text, Image, ImageSourcePropType, ActivityIndicator, FlatList } from 'react-native';
+import { View, Text, Image, ActivityIndicator, FlatList } from 'react-native';
 import React, { useEffect, useMemo, useState } from 'react';
 import { Coin, getCoinData } from '@/scripts/getCoinData';
 
@@ -50,7 +50,7 @@ const PrepsCard = () => {
                         <Image source={{ uri: item.image }} className='w-12 h-12 rounded-full bg-black mx-1'></Image>
                         <View className='flex-row w-full h-[30px] items-center'>
                             <View className='w-auto h-full flex justify-center mx-3'><Text className='text-white text-sm font-bold text-center' style={{ fontFamily: "Space-Mono" }}>{item.symbol.toUpperCase()}</Text></View>
-                            <View className='w-[40px] h-[20px] flex justify-center bg-[#1a1a26] rounded-md'><Text className='text-[#ffffff96] text-center text-sm font-bold'>10x</Text></View>
+                            <View className='w-[40px] h-[20px] flex justify-center bg-[#1a1a26] rounded-md'><Text className='text-[#ffffff96] text-center text-sm font-bold'>{Number(item.price_change_percentage_24h).toFixed(1)}x</Text></View>
                         </View>
                     </View>
                     <View className='h-1/4 w-ful flex justify-center'>
@@ -60,7 +60,7 @@ const PrepsCard = () => {
                                     }`}
                             >
                                 {item.price_change_percentage_24h >= 0 ? "+" : ""}
-                                {item.price_change_percentage_24h.toFixed(2)}%
+                                {Number(item.price_change_percentage_24h).toFixed(2)}%
                             </Text>
                         </View>
                     </View>

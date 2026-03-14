@@ -79,12 +79,12 @@ const CoinCard = () => {
 
           <View className="ml-3 rounded-lg px-2 py-1 flex justify-center items-center bg-[#1a1a26]">
             <Text
-              className={`text-xs text-center ${
+className={`text-xs font-bold text-center ${
                 item.price_change_percentage_24h >= 0 ? "text-[#6affbc]" : "text-[#ff7d9a]"
               }`}
             >
               {item.price_change_percentage_24h >= 0 ? "+" : ""}
-              {item.price_change_percentage_24h.toFixed(2)}%
+              {Number(item.price_change_percentage_24h).toFixed(2)}%
             </Text>
           </View>
         </View>

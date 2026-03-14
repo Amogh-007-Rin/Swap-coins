@@ -16,7 +16,7 @@ const PredictionCard = ({ id, ImageUrl, Activity, Headline, Title }: PredictionC
         <View className="flex items-center py-2 bg-[#11111a] mr-4 border border-[#212132] w-64 h-[170px] gap-2 rounded-xl">
             <View className='flex-row w-[90%] px-1 py-1'>
                 <Image source={{ uri: ImageUrl }} className='h-14 w-14 rounded-xl bg-black'></Image>
-                <View className="rounded-lg px-2 py-1 flex justify-center items-center bg-[#1a1a26] absolute right-0">
+                <View className="rounded-lg px-2 py-1 mx-3 my-1 flex justify-center items-center bg-[#1a1a26] absolute right-0">
                     <Text className={Activity ? 'text-green-500 text-xs text-center font-semibold' : 'text-red-500 text-xs text-center font-semibold'}>{Activity ? "• LIVE" : "OFFLINE"}</Text>
                 </View>
 
