@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { ActivityIndicator, FlatList, Image, Text, View } from "react-native";
-import { Coin, getCoinData } from "../../scripts/getCoinData";
+import { Coin, getCoinData } from "../../../scripts/getCoinData";
 
 const HOLDINGS: Record<string, number> = {
   sol: 42.5,

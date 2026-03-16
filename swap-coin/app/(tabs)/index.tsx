@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import { Animated, ScrollView, View } from "react-native";
 import "../../global.css"
-import WelcomeCard from "../components/welcomeCard";
-import ButtonCard from "../components/buttonCard";
-import SwapButtons from "../components/swapButtons";
-import TokenCard from "../components/TokenCard";
-import CoinCard from "../components/CoinCard";
-import Predictions from "../components/Predictions";
-import Preps from "../components/Perps";
+import WelcomeCard from "../components/Root/welcomeCard";
+import ButtonCard from "../components/Root/buttonCard";
+import SwapButtons from "../components/Root/swapButtons";
+import TokenCard from "../components/Root/TokenCard";
+import CoinCard from "../components/Root/CoinCard";
+import Predictions from "../components/Root/Predictions";
+import Preps from "../components/Root/Perps";
 
 
 export default function Index() {
